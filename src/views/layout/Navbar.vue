@@ -1,41 +1,26 @@
 <template>
-  <el-menu
-    :default-active="activeIndex"
-    class="el-menu-demo"
-    mode="horizontal"
-    @select="handleSelect"
-    background-color="#fff"
-    text-color="#495060"
-    active-text-color="#2d8cf0"
-  >
-    <el-menu-item index="1">处理中心</el-menu-item>
-    <el-submenu index="2">
-      <template slot="title">我的工作台</template>
-      <el-menu-item index="2-1">选项1</el-menu-item>
-      <el-menu-item index="2-2">选项2</el-menu-item>
-      <el-menu-item index="2-3">选项3</el-menu-item>
-    </el-submenu>
-    <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-  </el-menu>
+  <el-header style="text-align: right; font-size: 12px">
+    <el-dropdown>
+      <i class="el-icon-setting" style="margin-right: 15px"></i>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>查看</el-dropdown-item>
+        <el-dropdown-item>新增</el-dropdown-item>
+        <el-dropdown-item>删除</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <span>王小虎</span>
+  </el-header>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
-      }
-    },
-    methods: {
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath)
-      }
-    }
-  }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/scss" lang="scss" scoped>
-
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
+  }
 </style>
