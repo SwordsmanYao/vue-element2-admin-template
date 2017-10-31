@@ -64,9 +64,10 @@
     top: 0px;
     bottom: 0px;
     min-height: 100%;
-    overflow: auto;
+
     &:not(.el-menu--collapse) {
       width: 200px;
+      overflow: auto;
     }
   }
 </style>
