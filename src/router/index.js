@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+// 异步加载组件
+const Layout = r => require.ensure([], () => r(require('@/views/layout')), 'Layout')
 
 Vue.use(Router)
 
@@ -8,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: HelloWorld
+      name: 'Layout',
+      component: Layout
     }
   ]
 })
