@@ -1,6 +1,6 @@
 <template>
   <el-header>
-    <i class="el-icon-admin-navicon my-navicon my-left"></i>
+    <i @click="switchCollapseSidbar" class="el-icon-admin-navicon my-navicon my-left"></i>
     <el-breadcrumb class="my-left" separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>活动管理</el-breadcrumb-item>
@@ -22,7 +22,18 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
 
+  export default {
+    methods: {
+      ...mapActions({
+        switchCollapseSidbar: 'layout/switchCollapseSidbar'
+      })
+    },
+    computed: mapGetters({
+      isOpened: 'layout/opened'
+    })
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

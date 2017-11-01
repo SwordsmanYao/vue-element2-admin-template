@@ -2,9 +2,9 @@
   <el-menu
     default-active="1-4-1"
     class="el-menu-vertical"
-    @open="handleOpen"
-    @close="handleClose"
-    :collapse="isCollapse"
+    @open="switchCollapseSidbar"
+    @close="switchCollapseSidbar"
+    :collapse="!isOpened"
     background-color="#545c64"
     text-color="#fff"
     active-text-color="#2d8cf0"
@@ -39,20 +39,17 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
-    data () {
-      return {
-        isCollapse: false
-      }
-    },
     methods: {
-      handleOpen (key, keyPath) {
-        console.log(key, keyPath)
-      },
-      handleClose (key, keyPath) {
-        console.log(key, keyPath)
-      }
-    }
+      ...mapActions({
+        switchCollapseSidbar: 'layout/switchCollapseSidbar'
+      })
+    },
+    computed: mapGetters({
+      isOpened: 'layout/opened'
+    })
   }
 </script>
 

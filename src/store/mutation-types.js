@@ -1,0 +1,2 @@
+// 转换左侧菜单的开合状态
+export const SWITCH_COLLAPSE_SIDEBAR = 'SWITCH_COLLAPSE_SIDEBAR'
