@@ -1,6 +1,6 @@
 <template>
   <el-header>
-    <i @click="switchCollapseSidbar" class="el-icon-admin-navicon my-navicon my-left"></i>
+    <i @click.stop.prevent="switchCollapseSidbar" class="my-navicon my-left" :class="isOpened?'el-icon-admin-navicon':'el-icon-admin-navicon-v'"></i>
     <el-breadcrumb class="my-left" separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>活动管理</el-breadcrumb-item>
@@ -30,9 +30,11 @@
         switchCollapseSidbar: 'layout/switchCollapseSidbar'
       })
     },
-    computed: mapGetters({
-      isOpened: 'layout/opened'
-    })
+    computed: {
+      ...mapGetters({
+        isOpened: 'layout/opened'
+      })
+    }
   }
 </script>
 

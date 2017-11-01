@@ -2,8 +2,8 @@
   <el-menu
     default-active="1-4-1"
     class="el-menu-vertical"
-    @open="switchCollapseSidbar"
-    @close="switchCollapseSidbar"
+    @open="handleOpen"
+    @close="handleClose"
     :collapse="!isOpened"
     background-color="#545c64"
     text-color="#fff"
@@ -45,11 +45,19 @@
     methods: {
       ...mapActions({
         switchCollapseSidbar: 'layout/switchCollapseSidbar'
-      })
+      }),
+      handleOpen (key, keyPath) {
+        console.log(key, keyPath)
+      },
+      handleClose (key, keyPath) {
+        console.log(key, keyPath)
+      }
     },
-    computed: mapGetters({
-      isOpened: 'layout/opened'
-    })
+    computed: {
+      ...mapGetters({
+        isOpened: 'layout/opened'
+      })
+    }
   }
 </script>
 
