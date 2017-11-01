@@ -11,6 +11,4 @@ export default {
 </script>
 
 <style lang="scss">
-  /*引入全局css样式*/
-  @import "./styles/index.scss";
 </style>
