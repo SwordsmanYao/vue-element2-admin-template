@@ -9,6 +9,8 @@ const DemoList = r => require.ensure([], () => r(require('@/views/demo/list')), 
 Vue.use(Router)
 
 export default new Router({
+  // 设置被点击路由的class，如果不设置也可以用提供的 router-link-exact-active
+  linkActiveClass: 'is-active',
   routes: [
     {
       path: '/',
@@ -21,11 +23,17 @@ export default new Router({
         {
           path: 'DemoList',
           name: 'DemoList',
-          component: DemoList
+          component: DemoList,
+          meta: {
+            title: '演示列表'
+          }
         }, {
           path: 'DemoForm',
           name: 'DemoForm',
-          component: DemoForm
+          component: DemoForm,
+          meta: {
+            title: '演示表单'
+          }
         }
       ]
     }

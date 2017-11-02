@@ -2,10 +2,10 @@
   <el-header>
     <i @click.stop.prevent="switchCollapseSidbar" class="my-navicon my-left" :class="isOpened?'el-icon-admin-navicon':'el-icon-admin-navicon-v'"></i>
     <el-breadcrumb class="my-left" separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="item,index in matched" v-if="item.meta.title" :to="{ path: item.path }" :key="index">{{item.meta.title}}</el-breadcrumb-item>
+      <!--<el-breadcrumb-item>活动管理</el-breadcrumb-item>-->
+      <!--<el-breadcrumb-item>活动列表</el-breadcrumb-item>-->
+      <!--<el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
     </el-breadcrumb>
 
     <img class="my-right my-user" src="../../assets/img/user.jpg" alt="">
@@ -25,6 +25,11 @@
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
+    data () {
+      return {
+        matched: this.$route.matched
+      }
+    },
     methods: {
       ...mapActions({
         switchCollapseSidbar: 'layout/switchCollapseSidbar'
@@ -34,6 +39,12 @@
       ...mapGetters({
         isOpened: 'layout/opened'
       })
+    },
+    watch: {
+      $route() {
+        this.matched = this.$route.matched
+        console.log(this.$route)
+      }
     }
   }
 </script>
@@ -57,7 +68,7 @@
       margin-left:15px;
     }
     .el-breadcrumb{
-      font-size: 12px;
+      font-size: 14px;
       height: 60px;
       line-height: 60px;
       margin-left:30px;
