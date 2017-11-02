@@ -26,11 +26,13 @@
       </el-table-column>
       <el-table-column
         prop="address"
-        label="地址">
+        label="地址"
+        min-width="200">
       </el-table-column>
       <el-table-column
         prop="zip"
-        label="邮编">
+        label="邮编"
+        width="100">
       </el-table-column>
       <el-table-column
         fixed="right"
