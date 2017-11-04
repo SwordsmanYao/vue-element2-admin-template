@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 // 异步加载组件
 const Layout = r => require.ensure([], () => r(require('@/views/layout')), 'Layout')
+const Login = r => require.ensure([], () => r(require('@/views/login')), 'Login')
+
 const DemoForm = r => require.ensure([], () => r(require('@/views/demo/form')), 'DemoForm')
 const DemoList = r => require.ensure([], () => r(require('@/views/demo/list')), 'DemoList')
 
@@ -15,6 +17,10 @@ export default new Router({
     {
       path: '/',
       redirect: '/Layout'
+    }, {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     }, {
       path: '/Layout',
       name: 'Layout',

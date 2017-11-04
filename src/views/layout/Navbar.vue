@@ -2,7 +2,7 @@
   <el-header>
     <i @click.stop.prevent="switchCollapseSidbar" class="my-navicon my-left" :class="isOpened?'el-icon-admin-navicon':'el-icon-admin-navicon-v'"></i>
     <el-breadcrumb class="my-left" separator="/">
-      <el-breadcrumb-item v-for="item,index in matched" v-if="item.meta.title" :to="{ path: item.path }" :key="index">{{item.meta.title}}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="item,index in matched" v-if="item.meta.hasOwnProperty('title')" :to="{ path: item.path }" :key="index">{{item.meta.title}}</el-breadcrumb-item>
       <!--<el-breadcrumb-item>活动管理</el-breadcrumb-item>-->
       <!--<el-breadcrumb-item>活动列表</el-breadcrumb-item>-->
       <!--<el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
